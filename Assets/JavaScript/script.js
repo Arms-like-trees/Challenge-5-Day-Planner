@@ -25,6 +25,32 @@ $(function () {
 //To grab current date and time
 var now = dayjs().format('dddd, MMMM D')
 
+
 var displayDate = $('#currentDay')
+
 //To display in the header
 displayDate.text(now);
+
+//To add a past, present, or future class to timeblocks
+
+function renderColor() {
+  var timeColor = parseInt(dayjs().format('H'));
+  console.log(timeColor);
+  var timeBlocks = $('.time-block');
+
+  for (var timeSlot of timeBlocks) {
+    var slotId = timeSlot.id;
+    var idNumber = parseInt(slotId.split("-")[1]);
+    
+    if (idNumber < timeColor) {
+      $(timeSlot).addClass('past');
+    }
+    else if (idNumber === timeColor) {
+      $(timeSlot).addClass('present');
+    }
+    else { $(timeSlot).addClass('future') }
+    console.log(idNumber)
+
+  }
+}
+renderColor();
