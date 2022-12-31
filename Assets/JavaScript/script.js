@@ -21,3 +21,10 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+//To grab current date and time
+var now = dayjs().format('dddd, MMMM D')
+
+var displayDate = $('#currentDay')
+//To display in the header
+displayDate.text(now);
