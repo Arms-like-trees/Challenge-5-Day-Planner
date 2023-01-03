@@ -22,7 +22,8 @@ $(function () {
 });
 
 //To grab current date and time
-var now = dayjs().format('dddd, MMMM D')
+dayjs.extend(window.dayjs_plugin_advancedFormat);
+var now = dayjs().format('dddd, MMMM Do')
 
 
 var displayDate = $('#currentDay')
@@ -55,9 +56,27 @@ function renderColor() {
 renderColor();
 
 //To handle the save button to save to local storage
+var hourSlots = $('.time-block')
 
-var hour9 = $('#hour-9')
 
-hour9.on('click', function () {
-    localStorage.setItem('storeHour9', JSON.stringify(hour9))
+hourSlots.on("click", function (event){
+  event.preventDefault;
+  localStorage.setItem($(this).attr('id'), $(this).find('textarea').val())
+  console.log($(this).find('textarea').val())
 })
+
+//To pull from local storage
+
+function renderAgenda() {
+  var timeBlocks = $('.time-block');
+
+  for (var timeSlot of timeBlocks) {
+    var slotId = timeSlot.id;
+    console.log(slotId)
+    
+    var agenda = localStorage.getItem(slotId);
+    $(timeSlot).find('textarea').val(agenda)
+  }
+}
+
+renderAgenda();
