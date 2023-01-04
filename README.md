@@ -12,9 +12,3 @@ The following shows the site scalled down so that you can see how the hours are 
 
 ![Screenshot of work day scheduler](./Assets/Images/Work_day_scheduler%20screenshot.png)
 
-## Credits
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-
-
