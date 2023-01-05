@@ -58,15 +58,3 @@ function renderAgenda() {
 
 renderAgenda();
 
-//To check local time in background
-
-
-setInterval(function () {
-  console.log("is this running?");
-  renderColor();
-  
-},10000
-)
-console.log('howdy')
-
-
